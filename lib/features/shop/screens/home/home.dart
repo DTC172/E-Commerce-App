@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/common/widgets/customs_shapes/containers/primary_header_container.dart';
+import 'package:e_commerce_app/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,6 +7,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ///Header
+            TPrimaryHeaderContainer(
+              child: Column(
+                children: [
+                  ///-- Appbar
+                  THomeAppBar(),
+
+                  ///-- SearchBar
+                  ///-- Categories
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
