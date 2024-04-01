@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/common/widgets/customs_shapes/containers/primary_header_container.dart';
 import 'package:e_commerce_app/common/widgets/customs_shapes/containers/search_container.dart';
+import 'package:e_commerce_app/common/widgets/layouts/grid_layout.dart';
 import 'package:e_commerce_app/common/widgets/products/products_cards/product_card_vertical.dart';
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/features/shop/screens/home/widgets/home_appbar.dart';
@@ -15,12 +16,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             ///Header
-            TPrimaryHeaderContainer(
+            const TPrimaryHeaderContainer(
               child: Column(
                 children: [
                   ///-- Appbar
@@ -57,20 +58,22 @@ class HomeScreen extends StatelessWidget {
 
             ///Body
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  TPromoSlider(
+                  const TPromoSlider(
                     banners: [
                       TImages.promoBanner1,
                       TImages.promoBanner2,
                       TImages.promoBanner3,
                     ],
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// -- Product List
-                  TProductCardVertical(),
+                  TGridLayout(
+                      itemCount: 4,
+                      itemBuilder: (_, index) => const TProductCardVertical())
                 ],
               ),
             ),
