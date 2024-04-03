@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/utils/constants/colors.dart';
+import 'package:e_commerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class TSectionHeading extends StatelessWidget {
@@ -31,10 +33,17 @@ class TSectionHeading extends StatelessWidget {
         ),
         if (showActionButton)
           TextButton(
-              onPressed: onPressed,
-              child: Text(
-                buttonTitle,
-              )),
+            onPressed: onPressed,
+            child: Text(buttonTitle,
+                style: THelperFunctions.isDarkMode(context)
+                    ? Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .apply(color: TColors.primary)
+                    : Theme.of(context).textTheme.bodyMedium!.apply(
+                          color: TColors.black,
+                        )),
+          )
       ],
     );
   }

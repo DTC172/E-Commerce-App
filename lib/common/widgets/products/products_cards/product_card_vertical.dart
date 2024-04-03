@@ -85,7 +85,7 @@ class TProductCardVertical extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TProductTitleText(
-                      title: "Green Nike Air Shoes", smallSize: false),
+                      title: "Green Nike Air Shoes", smallSize: true),
                   SizedBox(height: TSizes.spaceBtwItems / 2),
                   TBrandTitleWithVerifiedIcon(
                       title: 'Nike',
