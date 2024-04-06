@@ -5,6 +5,7 @@ import 'package:e_commerce_app/common/widgets/list_title/user_profile_title.dart
 import 'package:e_commerce_app/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce_app/features/personalization/screens/address/address.dart';
 import 'package:e_commerce_app/features/personalization/screens/profile/profile.dart';
+import 'package:e_commerce_app/features/shop/screens/order/order.dart';
 import 'package:e_commerce_app/utils/constants/colors.dart';
 import 'package:e_commerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,8 @@ class SettingScreen extends StatelessWidget {
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
                       subtitle: 'Add, remove products from cart'),
-                  const TSettingMenuTitle(
+                  TSettingMenuTitle(
+                      onTap: () => Get.to(() => const OrderScreen()),
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
                       subtitle: 'View your orders'),
