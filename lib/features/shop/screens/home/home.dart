@@ -22,37 +22,40 @@ class HomeScreen extends StatelessWidget {
           children: [
             ///Header
             const TPrimaryHeaderContainer(
-              child: Column(
-                children: [
-                  ///-- Appbar
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.spaceBtwSections),
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    ///-- Appbar
+                    THomeAppBar(),
+                    SizedBox(height: TSizes.spaceBtwSections),
 
-                  ///-- SearchBar
-                  TSearchContainer(text: 'Search in Store'),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                    ///-- SearchBar
+                    TSearchContainer(text: 'Search in Store'),
+                    SizedBox(height: TSizes.spaceBtwSections),
 
-                  ///-- Categories
-                  Padding(
-                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
-                    child: Column(
-                      children: [
-                        ///-- Category Heading
-                        TSectionHeading(
-                          title: 'Popular Categories',
-                          showActionButton: false,
-                          textColor: TColors.white,
-                        ),
-                        SizedBox(
-                          height: TSizes.spaceBtwItems,
-                        ),
+                    ///-- Categories
+                    Padding(
+                      padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                      child: Column(
+                        children: [
+                          ///-- Category Heading
+                          TSectionHeading(
+                            title: 'Popular Categories',
+                            showActionButton: false,
+                            textColor: TColors.white,
+                          ),
+                          SizedBox(
+                            height: TSizes.spaceBtwItems,
+                          ),
 
-                        ///-- Categories list view
-                        THomeCategories()
-                      ],
-                    ),
-                  )
-                ],
+                          ///-- Categories list view
+                          THomeCategories()
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
 
