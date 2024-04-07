@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/features/authentication/screens/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class OnBoardingControlller extends GetxController {
   static OnBoardingControlller get instance => Get.find();
@@ -17,7 +18,9 @@ class OnBoardingControlller extends GetxController {
 
   void nextPage() {
     if (currentPageIndex.value == 2) {
-      Get.to(const LoginScreen());
+      final storoge = GetStorage();
+      storoge.write('IsFirstTime', false);
+      Get.offAll(const LoginScreen());
     } else {
       int page = currentPageIndex.value + 1;
       pageController.jumpToPage(page);
