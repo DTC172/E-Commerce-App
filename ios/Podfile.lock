@@ -1,4 +1,8 @@
 PODS:
+  - connectivity_plus (0.0.1):
+    - Flutter
+    - FlutterMacOS
+    - ReachabilitySwift
   - Firebase/CoreOnly (10.22.0):
     - FirebaseCore (= 10.22.0)
   - firebase_core (2.28.0):
@@ -26,10 +30,12 @@ PODS:
     - Flutter
     - FlutterMacOS
   - PromisesObjC (2.4.0)
+  - ReachabilitySwift (5.2.1)
   - url_launcher_ios (0.0.1):
     - Flutter
 
 DEPENDENCIES:
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/darwin`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
@@ -43,8 +49,11 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - GoogleUtilities
     - PromisesObjC
+    - ReachabilitySwift
 
 EXTERNAL SOURCES:
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/darwin"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
@@ -57,6 +66,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  connectivity_plus: e2dad488011aeb593e219360e804c43cc1af5770
   Firebase: 797fd7297b7e1be954432743a0b3f90038e45a71
   firebase_core: d955499180c3c8ef355adf46b8752c4c01d09e0a
   FirebaseCore: 0326ec9b05fbed8f8716cddbf0e36894a13837f7
@@ -66,6 +76,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: d053d902a8edaa9904e1bd00c37535385b8ed152
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  ReachabilitySwift: 5ae15e16814b5f9ef568963fb2c87aeb49158c66
   url_launcher_ios: 6116280ddcfe98ab8820085d8d76ae7449447586
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
