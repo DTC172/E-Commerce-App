@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/data/repositories/authentication/authentication_repository.dart';
+import 'package:e_commerce_app/data/repositories/user/user_repository.dart';
 import 'package:e_commerce_app/features/authentication/models/user_model.dart';
+import 'package:e_commerce_app/features/authentication/screens/signup/verify_email.dart';
 import 'package:e_commerce_app/utils/constants/image_strings.dart';
 import 'package:e_commerce_app/utils/helpers/network_manager.dart';
 import 'package:e_commerce_app/utils/popups/full_screen_loader.dart';
@@ -45,11 +47,12 @@ class SignupController extends GetxController {
         return;
       }
       // Register user in Firebase Authentication & Save User Data in Firebase
-      await AuthenticationRepository.instance.registerWithEmailAndPassword(
-          email.text.trim(), password.text.trim());
+      final userCredential = await AuthenticationRepository.instance
+          .registerWithEmailAndPassword(
+              email.text.trim(), password.text.trim());
       // Save Authenticated user data in the Firebase Firestore
       final newUser = UserModel(
-        id: '',
+        id: userCredential!.user!.uid,
         username: username.text.trim(),
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
@@ -57,8 +60,15 @@ class SignupController extends GetxController {
         phoneNumber: phoneNumber.text.trim(),
         profilePicture: '',
       );
+
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
       // Show Success Message
+      TLoaders.successSnackBar(
+          title: 'Congratulations!',
+          message: 'Your account has been created! Verify email to continue.');
       // Move to Verify Email Screen
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
       // Show some error
       TLoaders.errorSnackBar(
